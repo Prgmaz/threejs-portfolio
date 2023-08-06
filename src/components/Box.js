@@ -1,20 +1,19 @@
-import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
 
-function Box({ rotation, position, scale, color, ...props }) {
+function Box(props) {
 	const meshRef = useRef();
 
+	useFrame((state) => {
+		meshRef.current.rotation.x += 0.01 * props.speed;
+		meshRef.current.rotation.y += 0.01 * props.speed;
+		meshRef.current.rotation.z += 0.01 * props.speed;
+	});
+    
 	return (
-		<mesh
-			ref={meshRef}
-			position={position}
-			rotation={rotation}
-			scale={scale}
-			castShadow={props.castShadow}
-			receiveShadow={props.receiveShadow}
-		>
-			<boxGeometry scale={[1, 1, 1]} />
-			<meshLambertMaterial color={color} />
+		<mesh {...props} ref={meshRef}>
+			<boxGeometry args={[1, 1, 1]} />
+			<meshNormalMaterial/>
 		</mesh>
 	);
 }
