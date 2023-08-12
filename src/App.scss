@@ -263,3 +263,73 @@ body {
 		}
 	}
 }
+
+#contact {
+	height: 100vh;
+	position: relative;
+
+	.canvas-contact {
+		position: absolute !important;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+
+	.contact-form {
+		padding: 8rem;
+
+		.container {
+			backdrop-filter: blur(10px);
+			border: 1px solid rgb(189, 189, 189);
+			padding: 2rem;
+			height: 100%;
+
+			.heading {
+				font-size: 36px;
+				padding: 0 2rem;
+				font-weight: bolder;
+			}
+
+			.form-field {
+				padding: 0.5rem 1rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				.input {
+					width: 100%;
+					margin: 0 1rem;
+
+					label {
+						font-size: 20px;
+					}
+				}
+
+				input,
+				textarea {
+					font-size: 24px;
+					border: none;
+					outline: none;
+					resize: none;
+					padding: 0.25rem 1rem;
+					width: inherit;
+					border: 1px solid rgb(189, 189, 189);
+				}
+
+				input[type="submit"] {
+					background: white;
+					transition-duration: 200ms;
+					cursor: pointer;
+
+					&:hover {
+						background: black;
+						color: white;
+						border: 1px solid black;
+					}
+				}
+			}
+		}
+	}
+}

@@ -50,14 +50,16 @@ function Projects() {
 	const texture = useLoader(TextureLoader, texname);
 
 	function onMouseMoveCanvas(e) {
-		var x = e.clientX / window.innerWidth; // [0, 1920] -> [0, 1]
-		var y = e.clientY / window.innerHeight; // [0, 1080] -> [0, 1]
+		if (canvasRef.current) {
+			var x = e.clientX / window.innerWidth; // [0, 1920] -> [0, 1]
+			var y = e.clientY / window.innerHeight; // [0, 1080] -> [0, 1]
 
-		x = x * (1 - -1) + -1; // [-1, 1]
-		y = y * (1 - -1) + -1; // [-1, 1]
+			x = x * (1 - -1) + -1; // [-1, 1]
+			y = y * (1 - -1) + -1; // [-1, 1]
 
-		meshRef.current.position.x = (x * canvasRef.current.width) / 200;
-		meshRef.current.position.y = -(y * canvasRef.current.height) / 200;
+			meshRef.current.position.x = (x * canvasRef.current.width) / 200;
+			meshRef.current.position.y = -(y * canvasRef.current.height) / 200;
+		}
 	}
 
 	return (
