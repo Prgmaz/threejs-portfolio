@@ -12,6 +12,7 @@ import { Suspense, useRef } from "react";
 import Loading from "./components/Loading";
 import Home from "./pages/Home";
 import Info from "./pages/Info";
+import Projects from "./pages/Projects";
 
 function App() {
 	const controls = useRef();
@@ -32,24 +33,25 @@ function App() {
 		<>
 			<Suspense fallback={<Loading />}>
 				<div className="holder" onMouseMove={mouseMove}>
-					<Canvas className="canvas-board" shadows="soft">
+					<Canvas frameloop="never" className="canvas-board" shadows="soft">
 						<PerspectiveCamera position={[0, 10, 5]} makeDefault />
 						{/* <EffectComposer>
-						<Noise opacity={0.45} premultiply={true} />
-						<Vignette
-							opacity={0.65}
-							darkness={0.85}
-							eskil={false}
-						/>
-						<Glitch
-							delay={[1.5, 3.5]}
-							duration={[0.6, 1.0]}
-							strength={[0.3, 0.55]}
-							mode={1}
-							ratio={0.85}
-							active
-						/>
-					</EffectComposer> */}
+								<Noise opacity={0.45} premultiply={true} />
+								<Vignette
+									opacity={0.65}
+									darkness={0.85}
+									eskil={false}
+								/>
+								<Glitch
+									delay={[1.5, 3.5]}
+									duration={[0.6, 1.0]}
+									strength={[0.3, 0.55]}
+									mode={1}
+									ratio={0.85}
+									active
+								/>
+							</EffectComposer> 
+						*/}
 
 						<ambientLight color="#f1f1f1" intensity="1" />
 						<directionalLight
@@ -93,6 +95,7 @@ function App() {
 				</div>
 				<Home />
 				<Info />
+				<Projects />
 			</Suspense>
 		</>
 	);
